@@ -1,5 +1,8 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import { codeExamples, floatingCards } from "../data/CodeExamples";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -11,6 +14,8 @@ export default function Hero() {
     }
     window.addEventListener("mousemove", handleMouseMove);
   }, []);
+
+  const currentFloatingCard = floatingCards[activeTab];
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div
@@ -76,6 +81,31 @@ export default function Hero() {
                   Navbar.jsx
                 </button>
               </div>
+
+              <div className="relative overflow-hidden flex-grow">
+                <SyntaxHighlighter
+                  language="javascript"
+                  style={nightOwl}
+                  customStyle={{
+                    margin: 0,
+                    borderRadius: "8px",
+                    fontSize: "11px",
+                    lineHeight: "1.4",
+                    height: "100%",
+                    border: "1px solid #3c3c3c",
+                  }}
+                >
+                  {codeExamples[activeTab]}
+                </SyntaxHighlighter>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className={`hidden lg:black absolute bottom-4 right-4 transform translate-x-8 translate-y-8 w-72 ${currentFloatingCard.bgColor}`}
+          >
+            <div className="flex items-center space-x-2 mb-2">
+              <div>{currentFloatingCard}.icon</div>
             </div>
           </div>
         </div>
