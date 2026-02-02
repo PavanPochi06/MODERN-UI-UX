@@ -64,27 +64,27 @@ export const floatingCards = {
     bgColor: "bg-blue-500/20",
     iconColor: "text-blue-400",
     textColor: "text-blue-200",
-    contextColor: "text-blue-300",
+    contentColor: "text-blue-300",
     icon: "AI",
     title: "smart Compilation",
-    context: "AI-powered code suggestions in real-time"
+    content: "AI-powered code suggestions in real-time"
   },
   "Hero.jsx": {
     bgColor: "bg-purple-500/20",
     iconColor: "text-purple-400",
     textColor: "text-purple-200",
-    contextColor: "text-purple-300",
+    contentColor: "text-purple-300",
     icon: "🎇",
     title: "Auto Animation",
-    context: "Dynamic typing effects generated automatically"
+    content: "Dynamic typing effects generated automatically"
   },
   "Navbar.jsx": {
     bgColor: "bg-emerald-500/20",
     iconColor: "text-emerald-400",
     textColor: "text-emerald-200",
-    contextColor: "text-emerald-300",
+    contentColor: "text-emerald-300",
     icon: "🔍",
     title: "Smart Search",
-    context: "Intelligent code search across your project"
+    content: "Intelligent code search across your project"
   },
 }
