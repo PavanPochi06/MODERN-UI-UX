@@ -1,61 +1,80 @@
 export const codeExamples = {
   "App.jsx": `
-    <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            <a
-              href="#features"
-              className="text-gray-300 hover:text-white text-sm lg:text-base"
-            >
-              Features
-            </a>
-            <a
-              href="#pricing"
-              className="text-gray-300 hover:text-white text-sm lg:text-base"
-            >
-              Pricing
-            </a>
-            <a
-              href="#testimonials"
-              className="text-gray-300 hover:text-white text-sm lg:text-base"
-            >
-              Testimonials
-            </a>
-          </div>
+    import Navbar from "./components/Navbar";
+    import Hero from "./components/Hero";
+    import Pricing from "./components/Pricing";
+    import Footer from "./components/Footer";
+    import Testimonials from "./components/Testimonials";
+    import Feature from "./components/Features";
+    
+    function App() {
+      return(
+        <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
+          <Navbar />
+          <Hero />
+          <Feature />
+          <Pricing /> 
+          <Testimonials />
+          <Footer />
+        </div>
+      );
+    }
   `,
   "Hero.jsx": `
-    <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-              Features
-            </a>
-            <a
-              href="#pricing"
-              className="text-gray-300 hover:text-white text-sm lg:text-base"
-            >
-              Pricing
-            </a>
-            <a
-              href="#testimonials"
-              className="text-gray-300 hover:text-white text-sm lg:text-base"
-            >
-              Testimonials
-            </a>
-          </div>
+    import { ChevronDown, Sparkle } from "lucide-react";
+    import { useEffect, useState } from "react";
+    import { codeExamples, floatingCards } from "../data/CodeExamples";
+    import SyntaxHighlighter from "react-syntax-highlighter";
+    import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
+
+    export default function Hero() {
+      const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+      const [activeTab, setActiveTab] = useState("App.jsx");
+
+      useEffect(() => {
+        function handleMouseMove(e) {
+          setMousePosition({ x: e.clientX, y: e.clientY });
+        }
+        window.addEventListener("mousemove", handleMouseMove);
+      }, []);
   `,
   "Navbar.jsx": `
-    <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            <a
-              href="#features"
-              className="text-gray-300 hover:text-white text-sm lg:text-base"
-            >
-              Features
-            </a>
-            <a
-              href="#pricing"
-              className="text-gray-300 hover:text-white text-sm lg:text-base"
-            >
-              Pricing
-            </a>
-              Testimonials
-            </a>
+    import { Menu, X } from "lucide-react";
+    import { useState } from "react";
+    export default function Navbar() {
+    const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
+    return (
+      <nav className="fixed top-0 w-full z-50 transition-all duration-300 bg-slate-950/20 backdrop-blur-sm">
+        {mobileMenuIsOpen && (
+          <div className="md:hidden bg-slate-900/95 backdrop-blur-lg border-t border-slate-800 animate-in slide-in-from-top duration-300">
+            <div className="px-4 py-4 sm:py-6 space-y-3 sm:space-y-4">
+              <a
+                href="#features"
+                onClick={() => setMobileMenuIsOpen(false)}
+                className="block text-gray-300 hover:text-white text-sm lg:text-base"
+              >
+                Features
+              </a>
+              <a
+                href="#pricing"
+                onClick={() => setMobileMenuIsOpen(false)}
+                className="block text-gray-300 hover:text-white text-sm lg:text-base"
+              >
+                Pricing
+              </a>
+              <a
+                href="#testimonials"
+                onClick={() => setMobileMenuIsOpen(false)}
+                className="block text-gray-300 hover:text-white text-sm lg:text-base"
+              >
+                Testimonials
+              </a>
+            </div>
           </div>
+        )}
+      </nav>
+    );
+  }
   `,
 };
 
