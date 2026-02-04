@@ -73,8 +73,3 @@ Open your browser and visit:
 📸 Screenshots
 <img width="1816" height="849" alt="Screenshot 2026-02-05 001307" src="https://github.com/user-attachments/assets/bd57e7da-76c9-4bf3-8589-fff644d3eba7" />
 
-📄 License
-
-      This project is licensed under the MIT License.
-
-
